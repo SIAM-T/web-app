@@ -1,0 +1,19 @@
+{% if own_profile %}
+    <h3>Your Profile</h3>
+    <!-- Your profile content -->
+{% else %}
+    <h3>{{ user.fname }} {{ user.lname }}'s Profile</h3>
+    <form method="POST" action="{{ url_for('add_friend', user_id=user.id) }}">
+        <button type="submit">Add Friend</button>
+    </form>
+    <h3>Send Message</h3>
+    <form method="POST" action="{{ url_for('send_message', receiver_id=user.id) }}">
+        <textarea name="content" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+{% endif %}
+<!-- If the user is logged in, show a logout button -->
+{% if current_user.is_authenticated %}
+    <a href="{{ url_for('logout') }}">Logout</a>
+{% endif %}
+

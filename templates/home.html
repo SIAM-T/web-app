@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Login</title>
+
+
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="login-container">
+            <h1>Welcome</h1>
+            {% if message %}
+            <div class="message success" style="color: green;">
+                {{ message }}
+            </div>
+        {% endif %}
+            <form action="/" class="log" method="post">
+                
+                <input type="email" placeholder="Enter your email address" required name="email"><br>
+                <input type="password" placeholder="Password" required name="password"><br>
+                <button type="submit" class="login-btn">Log in</button>
+            </form>
+            <div class="link">
+              <a href="#" class="forgot-password">Forgotten password?</a>
+            <hr>
+            <button class="create-account-btn" onclick="window.location.href = '/Create_new_account';">Create new account</button>
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+</html>
